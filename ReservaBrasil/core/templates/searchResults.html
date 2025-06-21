@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Resultados da busca</title>
+        <link rel="stylesheet" href="{% static 'css/searchResults.css' %}" />
+    </head>
+    <body>
+        {% include 'base.html' %}
+        <div class="results-container">
+            <h2>Resultados da Busca</h2>
+            <ul class="property-list">
+                {% if propertyResults %} {% for property in propertyResults %}
+                <li class="property-item">
+                    <a href="{% url 'propertyDetail' property.id_property %}">
+                        {% if property.image %}
+                        <img
+                            src="{{ property.image.url }}"
+                            alt="{{ property.name }}"
+                            class="property-image"
+                        />
+                        {% endif %}
+
+                        <strong>{{ property.name }}</strong>
+                    </a>
+                    <div>Categoria: {{ property.category.name }}</div>
+                    {% if property.typeProperty %}
+                    <div>Tipo: {{ property.typeProperty.name }}</div>
+                    {% endif %} {% if property.price %}
+                    <div>Preço: R$ {{ property.price }}</div>
+                    {% endif %}
+                </li>
+                {% endfor %} {% else %}
+                <li class="no-result">Nenhum imóvel encontrado.</li>
+                {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>

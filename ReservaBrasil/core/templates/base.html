@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    </head>
+    <body>
+        <div id="loader">
+            <div class="loader"></div>
+        </div>
+
+        <div class="content">
+            <div class="nav-container">
+                <h1>Reserva Brasil</h1>
+
+                <div class="nav-buscas">
+                    <form method="get" action="{% url 'searchProperty' %}">
+                        <input type="text" name="searchQuery" placeholder="Buscar imóveis..." />
+                        <button type="submit">Buscar</button>
+                    </form>
+
+                    <div class="nav-link">
+                        <a href="{% url 'homepage' %}">Homepage</a>
+                        <a href="{% url 'homeReservation' %}">Reservas</a>
+                        <a href="{% url 'users' %}">Usuário</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/loader.js' %}"></script>
+    </body>
+</html>

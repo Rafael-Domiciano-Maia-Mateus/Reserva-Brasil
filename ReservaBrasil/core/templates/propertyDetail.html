@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ property.name }} - Detalhes do Imóvel</title>
+        <link rel="stylesheet" href="{% static 'css/propertyDetail.css' %}" />
+    </head>
+    <body>
+        {% include 'base.html' %}
+
+        <div class="property-detail-container">
+            <h1>{{ property.name }}</h1>
+
+            {% if property.image %}
+            <img class="property-image" src="{{ property.image.url }}" alt="{{ property.name }}" />
+            {% endif %} {% if property.category %}
+            <p><strong>Categoria:</strong> {{ property.category.name }}</p>
+            {% endif %} {% if property.typeProperty %}
+            <p><strong>Tipo:</strong> {{ property.typeProperty.name }}</p>
+            {% endif %} {% if property.price %}
+            <p><strong>Preço:</strong> R$ {{ property.price }}</p>
+            {% endif %}
+
+            <a href="{% url 'homeReservation' %}">Faça sua reserva</a>
+        </div>
+    </body>
+</html>

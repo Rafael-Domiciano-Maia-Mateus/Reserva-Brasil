@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reserva Brasil - Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+    </head>
+    <body>
+        {% include 'base.html' %}
+        <div class="results-container">
+            <h2>Imóveis em Destaque</h2>
+            {% if propertyResults %}
+            <ul class="property-list">
+                {% for property in propertyResults %}
+                <li class="property-item">
+                    {% if property.image %}
+                    <img
+                        src="{{ property.image.url }}"
+                        alt="{{ property.name }}"
+                        class="property-image"
+                    />
+                    {% endif %}
+                    <a href="{% url 'propertyDetail' property.id_property %}"
+                        >{{ property.name }}</a
+                    >
+                    <p>Categoria: {{ property.category.name }}</p>
+                    {% if property.typeProperty %}
+                    <p>Tipo: {{ property.typeProperty.name }}</p>
+                    {% endif %} {% if property.price %}
+                    <p>Preço: R$ {{ property.price }}</p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="no-result">Nenhum imóvel encontrado.</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

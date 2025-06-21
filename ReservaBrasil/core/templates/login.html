@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+        <title>Chalés São Mateus - Login</title>
+    </head>
+
+    <body>
+        <div id="loader">
+            <div class="loader"></div>
+        </div>
+
+        <div class="content">
+            {% if messages %}
+            <div class="messages">
+                <ul>
+                    {% for message in messages %}
+                    <li class="message {{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="container" id="container">
+                <div class="form-container sign-up">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <h1>Criar Conta</h1>
+                        <div class="social-icons">
+                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                        <span>ou use seu e-mail para se registrar</span>
+                        <input type="text" name="username" placeholder="Nome" required />
+                        <input type="email" name="email" placeholder="E-mail" required />
+                        <input type="text" name="telefone" placeholder="Telefone" required />
+                        <input type="password" name="password" placeholder="Senha" required />
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            placeholder="Confirme a senha"
+                            required
+                        />
+                        <input type="hidden" name="action" value="register" />
+                        <button type="submit">Registrar</button>
+                    </form>
+                </div>
+
+                <div class="form-container sign-in">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <h1>Entrar</h1>
+                        <div class="social-icons">
+                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                        <span>ou use seu nome de usuário e senha</span>
+                        <input type="text" name="username" placeholder="Nome de usuário" required />
+                        <input type="password" name="password" placeholder="Senha" required />
+                        <input type="hidden" name="action" value="login" />
+                        <a href="{% url 'recoverPassword' %}">Esqueceu sua senha?</a>
+                        <button type="submit">Entrar</button>
+                    </form>
+                </div>
+
+                <div class="toggle-container">
+                    <div class="toggle">
+                        <div class="toggle-panel toggle-left">
+                            <h1>Bem-vindo de volta!</h1>
+                            <p>Insira seus dados para prosseguir</p>
+                            <button class="hidden" id="login">Entrar</button>
+                        </div>
+                        <div class="toggle-panel toggle-right">
+                            <h1>Olá, Amigo(a)!</h1>
+                            <p>Cadastre-se para se juntar à nós</p>
+                            <button class="hidden" id="register">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/login.js' %}"></script>
+    </body>
+</html>
