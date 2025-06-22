@@ -34,6 +34,7 @@ class Property(models.Model):
     active = models.BooleanField(default=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
     typeProperty = models.ForeignKey(Type, null=True, blank=True, on_delete=models.SET_NULL)
+    description = models.TextField(max_length=800, null=True, blank=True)
 
     def __str__(self):
         return f'Nome: {self.name}; Categoria: {self.category}; Tipo: {self.typeProperty}; id: {self.id_property}'

@@ -1,10 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Reserva Brasil</title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     </head>
     <body>
@@ -12,6 +12,7 @@
             <div class="loader"></div>
         </div>
 
+        <!-- Navbar -->
         <div class="content">
             <div class="nav-container">
                 <h1>Reserva Brasil</h1>
@@ -26,6 +27,25 @@
                         <a href="{% url 'homepage' %}">Homepage</a>
                         <a href="{% url 'homeReservation' %}">Reservas</a>
                         <a href="{% url 'users' %}">Usuário</a>
+                        <nav>
+                            <!-- Outras coisas da barra de navegação -->
+
+                            <select
+                                id="nav-combobox"
+                                onchange="if(this.value) window.location.href=this.value"
+                            >
+                                <option value="">---selecione---</option>
+
+                                <option value="{% url 'Invoice' %}">Fatura</option>
+                                <option value="{% url 'Businesses' %}">Para Empresas</option>
+
+                                {% if user.is_authenticated and user.is_staff %}
+                                <option value="{% url 'addImage' %}">
+                                    Adicionar imagem da propriedade
+                                </option>
+                                {% endif %}
+                            </select>
+                        </nav>
                     </div>
                 </div>
             </div>

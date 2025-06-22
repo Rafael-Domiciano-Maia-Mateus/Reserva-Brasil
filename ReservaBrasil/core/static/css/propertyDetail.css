@@ -1,49 +1,90 @@
-.property-detail-container {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    text-align: center;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
 }
 
-.property-detail-container h1 {
+.property-detail-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: 1px solid #e0e0e0;
+}
+
+.property-detail-header {
+    text-align: center;
     font-size: 2rem;
     color: #003580;
-    margin-bottom: 1.5rem;
+}
+
+.property-detail-main {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.property-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.property-info p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.property-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fafafa;
 }
 
 .property-image {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
-    margin: 0 auto 1.5rem auto;
-    display: block;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.property-detail-container p {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color: #333;
+.property-description {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.property-description p {
+    font-size: 1.05rem;
+    color: #444;
 }
 
 .property-detail-container a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
     padding: 10px 20px;
     background-color: #0071c2;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
 }
 
 .property-detail-container a:hover {
-    background-color: #005a8a;
+    background-color: #005a9c;
 }

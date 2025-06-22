@@ -11,16 +11,34 @@
         {% include 'base.html' %}
 
         <div class="property-detail-container">
-            <h1>{{ property.name }}</h1>
+            <h1 class="property-detail-header">{{ property.name }}</h1>
 
-            {% if property.image %}
-            <img class="property-image" src="{{ property.image.url }}" alt="{{ property.name }}" />
-            {% endif %} {% if property.category %}
-            <p><strong>Categoria:</strong> {{ property.category.name }}</p>
-            {% endif %} {% if property.typeProperty %}
-            <p><strong>Tipo:</strong> {{ property.typeProperty.name }}</p>
-            {% endif %} {% if property.price %}
-            <p><strong>Preço:</strong> R$ {{ property.price }}</p>
+            <div class="property-detail-main">
+                <div class="property-info">
+                    {% if property.price %}
+                    <p><strong>Valor:</strong> R$ {{ property.price }}</p>
+                    {% endif %} {% if property.category %}
+                    <p><strong>Categoria:</strong> {{ property.category.name }}</p>
+                    {% endif %} {% if property.typeProperty %}
+                    <p><strong>Tipo:</strong> {{ property.typeProperty.name }}</p>
+                    {% endif %}
+                </div>
+
+                {% if property.image %}
+                <div class="property-image-container">
+                    <img
+                        class="property-image"
+                        src="{{ property.image.url }}"
+                        alt="{{ property.name }}"
+                    />
+                </div>
+                {% endif %}
+            </div>
+
+            {% if property.description %}
+            <div class="property-description">
+                <p><strong>Descrição:</strong> {{ property.description }}</p>
+            </div>
             {% endif %}
 
             <a href="{% url 'homeReservation' %}">Faça sua reserva</a>

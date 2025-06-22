@@ -32,7 +32,7 @@ def login_view(request):
                 messages.error(request, 'Esta conta está desativada.')
             else:
                 messages.error(request, 'Nome de usuário ou senha inválidos.')
-            return redirect('login')
+            return redirect('login_view')
 
         elif action == 'register':
             username = request.POST.get('username', '').strip()
@@ -43,19 +43,19 @@ def login_view(request):
 
             if not all([username, email, phoneNumber, password, confirm_password]):
                 messages.error(request, 'Todos os campos são obrigatórios para registro.')
-                return redirect('login')
+                return redirect('login_view')
 
             if password != confirm_password:
                 messages.error(request, 'As senhas não coincidem.')
-                return redirect('login')
+                return redirect('login_view')
 
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Nome de usuário já está em uso.')
-                return redirect('login')
+                return redirect('login_view')
 
             if User.objects.filter(email=email).exists():
                 messages.error(request, 'E-mail já está em uso.')
-                return redirect('login')
+                return redirect('login_view')
 
             try:
                 user = User.objects.create_user(username=username, email=email, password=password)
@@ -63,7 +63,7 @@ def login_view(request):
                 messages.success(request, 'Conta criada com sucesso! Faça login.')
             except:
                 messages.error(request, 'Erro ao criar a conta. Tente novamente.')
-            return redirect('login')
+            return redirect('login_view')
     return render(request, 'login.html')
 
 
@@ -118,3 +118,16 @@ def homeReservation(request):
 @login_required
 def reservation(request):
     return render(request, 'reservation.html')
+
+
+def Invoice(request):
+    return render(request, 'Invoice.html')
+
+
+def Businesses(request):
+    return render(request, 'Businesses.html')
+
+
+@login_required
+def addImage(request):
+    return render(request, 'addImage.html')
