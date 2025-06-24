@@ -120,12 +120,12 @@ def users(request):
     return render(request, 'users.html')
 
 
-@login_required
+@login_required(login_url='login_view')
 def homeReservation(request):
     return render(request, 'homeReservation.html')
 
 
-@login_required
+@login_required(login_url='login_view')
 def reservation(request):
     return render(request, 'reservation.html')
 
@@ -138,6 +138,6 @@ def Businesses(request):
     return render(request, 'Businesses.html')
 
 
-@login_required
+@login_required(login_url='login_view')
 def addImage(request):
     return render(request, 'addImage.html')

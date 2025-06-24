@@ -12,7 +12,6 @@
             <div class="loader"></div>
         </div>
 
-        <!-- Navbar -->
         <div class="content">
             <div class="nav-container">
                 <h1>Reserva Brasil</h1>
@@ -24,31 +23,55 @@
                     </form>
 
                     <div class="nav-link">
-                        <a href="{% url 'homepage' %}">Homepage</a>
-                        <a href="{% url 'homeReservation' %}">Reservas</a>
-                        <a href="{% url 'users' %}">Usuário</a>
+                        <a href="{% url 'homepage' %}"
+                            ><img src="{% static 'img/icons/homepage.svg' %}" alt="Homepage"
+                        /></a>
+
                         <nav>
-                            <select
-                                id="nav-combobox"
-                                onchange="if(this.value) window.location.href=this.value"
-                            >
-                                <option value="">---selecione---</option>
+                            <div class="nav-link" style="position: relative">
+                                <img
+                                    src="{% static 'img/icons/menu.svg' %}"
+                                    alt="Menu"
+                                    id="menu-icon"
+                                    style="width: 30px; cursor: pointer"
+                                />
 
-                                <option value="{% url 'Invoice' %}">Fatura</option>
-                                <option value="{% url 'Businesses' %}">Para Empresas</option>
-
-                                {% if user.is_authenticated and user.is_staff %}
-                                <option value="{% url 'addImage' %}">
-                                    Adicionar imagem da propriedade
-                                </option>
-                                {% endif %}
-                            </select>
+                                <ul id="custom-menu" class="dropdown-menu">
+                                    <li><a href="{% url 'users' %}">Usuário</a></li>
+                                    <li><a href="{% url 'homeReservation' %}">Reservas</a></li>
+                                    <li><a href="{% url 'Invoice' %}">Fatura</a></li>
+                                    {% if user.is_authenticated and user.is_staff %}
+                                    <li>
+                                        <a href="{% url 'addImage' %}"
+                                            >Adicionar imagem da propriedade</a
+                                        >
+                                    </li>
+                                    {% endif %}
+                                    <li><a href="{% url 'Businesses' %}">Para Empresas</a></li>
+                                </ul>
+                            </div>
                         </nav>
+
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'login_view' %}"
+                            ><img src="{% static 'img/icons/Logout.svg' %}" alt="Logout"
+                        /></a>
+                        {% else %}
+                        <a href="{% url 'login_view' %}">Login</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
 
         <script src="{% static 'js/loader.js' %}"></script>
+        <script>
+            const menuIcon = document.getElementById('menu-icon');
+            const dropdown = document.getElementById('custom-menu');
+
+            menuIcon.addEventListener('click', () => {
+                dropdown.classList.toggle('show');
+            });
+        </script>
     </body>
 </html>

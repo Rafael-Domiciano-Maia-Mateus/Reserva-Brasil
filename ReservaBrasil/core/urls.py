@@ -16,3 +16,4 @@ urlpatterns = [
     path('addImage/', addImage, name='addImage'),
      path('property/<int:property_id>/', propertyDetail, name='propertyDetail'),  
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
