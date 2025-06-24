@@ -65,13 +65,6 @@
         </div>
 
         <script src="{% static 'js/loader.js' %}"></script>
-        <script>
-            const menuIcon = document.getElementById('menu-icon');
-            const dropdown = document.getElementById('custom-menu');
-
-            menuIcon.addEventListener('click', () => {
-                dropdown.classList.toggle('show');
-            });
-        </script>
+        <script src="{% static 'js/menuBase.js' %}"></script>
     </body>
 </html>
