@@ -18,6 +18,7 @@
 
                 <div class="nav-buscas">
                     <form method="get" action="{% url 'searchProperty' %}">
+                        <img src="{% static 'img/icons/search.svg' %}" alt="" />
                         <input type="text" name="searchQuery" placeholder="Buscar imóveis..." />
                         <button type="submit">Buscar</button>
                     </form>
