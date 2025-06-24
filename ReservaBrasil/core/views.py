@@ -5,9 +5,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
+from django.conf import settings
 from unidecode import unidecode
 from .models import *
 import random
+import os
 
 
 # Create your views here.
@@ -21,7 +23,7 @@ def login_view(request):
 
             if not username or not password:
                 messages.error(request, 'Todos os campos são obrigatórios para login.')
-                return redirect('login')
+                return redirect('login_view')
 
             user = authenticate(request, username=username, password=password)
 
@@ -64,7 +66,15 @@ def login_view(request):
             except:
                 messages.error(request, 'Erro ao criar a conta. Tente novamente.')
             return redirect('login_view')
-    return render(request, 'login.html')
+
+    image_list = [
+        'img/login_view/fundo1.jpg',
+        'img/login_view/fundo2.jpg',
+        'img/login_view/fundo3.jpg',
+    ]
+
+    selected_image = random.choice(image_list)
+    return render(request, 'login.html', {'background_image': selected_image})
 
 
 def recoverPassword(request): 

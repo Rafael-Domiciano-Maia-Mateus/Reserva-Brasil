@@ -8,8 +8,6 @@
 }
 
 body {
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,9 +15,17 @@ body {
     height: 100vh;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: url('../img/fotoChale.png') no-repeat center center fixed;
-    background-size: cover;
     position: relative;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .container {

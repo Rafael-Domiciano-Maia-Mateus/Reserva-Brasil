@@ -3,16 +3,17 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Reserva Brasil - Login</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
         <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-        <title>Chalés São Mateus - Login</title>
     </head>
-
     <body>
+        <img src="{% static background_image %}" alt="Fundo Login" class="background-image" />
+
         <div id="loader">
             <div class="loader"></div>
         </div>
@@ -79,7 +80,7 @@
                         </div>
                         <div class="toggle-panel toggle-right">
                             <h1>Olá, Amigo(a)!</h1>
-                            <p>Cadastre-se para se juntar à nós</p>
+                            <p>Cadastre-se para se juntar à Reserva Brasil</p>
                             <button class="hidden" id="register">Registrar</button>
                         </div>
                     </div>
