@@ -1,0 +1,20 @@
+Como rodar pela primeira vez:
+    1 - Crie um ambiente virtual:
+        python -m venv .venv
+
+    2 - Ative o ambiente virtual:
+        .venv\Scripts\activate   (Windows PowerShell/CMD)
+        source .venv/bin/activate   (Linux/macOS)
+
+    3 - Instale as dependências:
+        pip install django
+        pip install pillow
+        pip install unidecode
+
+    4 - Entre na pasta do projeto (se ainda não estiver nela):
+        cd ReservaBrasil
+
+    5 - Rode o servidor:
+        python manage.py runserver
+
+    6 - Acesse a URL indicada no terminal (geralmente http://127.0.0.1:8000/)
