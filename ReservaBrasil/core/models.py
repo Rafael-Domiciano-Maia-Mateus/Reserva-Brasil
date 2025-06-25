@@ -19,7 +19,7 @@ class UserApp(models.Model):
         """
         Returns a string representation of the user with username, email and ID.
         """
-        return f'Name: {self.user.username}; Email: {self.user.email}; id: {self.id_user}'
+        return f'Nome: {self.user.username}; E-mail: {self.user.email}; id: {self.id_user}'
 
 
 class Category(models.Model):
@@ -86,7 +86,7 @@ class Property(models.Model):
         """
         Returns a string with the property's name, category, type, and ID.
         """
-        return f'Name: {self.name}; Category: {self.category}; Type: {self.typeProperty}; id: {self.id_property}'
+        return f'Nome: {self.name}; Categoria: {self.category}; Tipo: {self.typeProperty}; id do imóvel: {self.id_property}'
 
 
 class Reservation(models.Model):
@@ -131,4 +131,4 @@ class Reservation(models.Model):
         """
         Returns a string representation with username, user ID, property name, and reservation ID.
         """
-        return f'Name: {self.user.username}; User ID: {self.id_user}; Property Name: {self.nameProperty}; Reservation ID: {self.id_reservation}'
+        return f'Nome: {self.user.username}; ID usuário: {self.id_user}; Nome do imóvel: {self.nameProperty}; ID do imovel: {self.id_reservation}'

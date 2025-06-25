@@ -12,13 +12,29 @@
         <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     </head>
     <body>
-        <img src="{% static background_image %}" alt="Fundo Login" class="background-image" />
-
         <div id="loader">
             <div class="loader"></div>
         </div>
 
         <div class="content">
+            <img src="{% static background_image %}" alt="Fundo Login" class="background-image" />
+
+            <nav class="nav-container">
+                <h1 class="logo">Reserva Brasil</h1>
+
+                <div class="nav-buscas">
+                    <form method="get" action="{% url 'searchProperty' %}">
+                        <img src="{% static 'img/icons/search.svg' %}" alt="Buscar" />
+                        <input type="text" name="searchQuery" placeholder="Buscar imóveis..." />
+                        <button type="submit">Buscar</button>
+                    </form>
+
+                    <a href="{% url 'homepage' %}" class="nav-link" title="Página inicial">
+                        <img src="{% static 'img/icons/homepage.svg' %}" alt="Ícone Home" />
+                    </a>
+                </div>
+            </nav>
+
             {% if messages %}
             <div class="messages">
                 <ul>
@@ -89,5 +105,6 @@
         </div>
 
         <script src="{% static 'js/login.js' %}"></script>
+        <script src="{% static 'js/loader.js' %}"></script>
     </body>
 </html>
