@@ -88,3 +88,106 @@ body {
 .property-detail-container a:hover {
     background-color: #005a9c;
 }
+
+.property-detail-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.property-detail-header {
+    font-size: 2.2em;
+    color: #154c79;
+    margin-bottom: 25px;
+}
+
+.property-detail-main {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.property-info {
+    flex: 1 1 350px;
+}
+
+.property-info p {
+    margin: 8px 0;
+    font-size: 1.05em;
+}
+
+.property-image-container {
+    flex: 0 0 300px;
+}
+
+.property-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.property-rooms-inline {
+    margin-top: 20px;
+    background-color: #f1f5f9;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.property-rooms-inline h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #154c79;
+}
+
+.room-list-inline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.room-item-inline {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.room-item-inline span {
+    margin-right: 10px;
+}
+
+.no-rooms-message {
+    background-color: #ffeeba;
+    color: #856404;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.property-description {
+    margin-top: 30px;
+    font-size: 1.05em;
+    color: #333;
+}
+
+.reservation-link {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.reservation-link:hover {
+    background-color: #0056b3;
+}

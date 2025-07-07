@@ -1,0 +1,110 @@
+.property-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+}
+
+.property-container h1 {
+    font-size: 2.4em;
+    color: #154c79;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.create-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.create-button:hover {
+    background-color: #0056b3;
+}
+
+.property-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.property-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 14px;
+    padding: 16px 22px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.property-list li span {
+    flex-grow: 1;
+}
+
+.property-list li div a {
+    margin-left: 10px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.property-list li div a.edit-btn {
+    background-color: #28a745;
+}
+
+.property-list li div a.edit-btn:hover {
+    background-color: #1e7e34;
+}
+
+.property-list li div a.delete-btn {
+    background-color: #dc3545;
+}
+
+.property-list li div a.delete-btn:hover {
+    background-color: #b21f2d;
+}
+
+.empty-message {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    text-align: center;
+    padding: 16px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.property-container a[href="{% url 'my-properties' %}"] {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.property-container a[href="{% url 'my-properties' %}"]:hover {
+    color: #0056b3;
+}

@@ -16,9 +16,18 @@
             <ul class="property-list">
                 {% for imovel in properties %}
                 <li>
-                    <span>{{ imovel.name }} - R$ {{ imovel.price }}</span>
+                    <span>{{ imovel.name }}</span>
                     <div>
                         <a href="{% url 'property-update' imovel.pk %}" class="edit-btn">Editar</a>
+                        {% for imovel in properties %} {% if imovel.rooms.all|length > 0 %}
+                        <a href="{% url 'room-list' imovel.id_property %}" class="edit-btn"
+                            >Gerenciar Quartos</a
+                        >
+                        {% else %}
+                        <a href="{% url 'room-list' imovel.id_property %}" class="edit-btn"
+                            >Adicionar Quartos</a
+                        >
+                        {% endif %} {% endfor %}
                         <a href="{% url 'property-delete' imovel.pk %}" class="delete-btn"
                             >Excluir</a
                         >

@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'css/room_list.css' %}" />
+    </head>
+    <body>
+        {% include "base.html" %} {% block content %}
+        <div class="property-container">
+            <h1>Quartos do imóvel: {{ property.name }}</h1>
+            <a href="{% url 'room-create' property.id_property %}" class="create-button"
+                >Adicionar Quarto</a
+            >
+
+            <ul class="property-list">
+                {% for room in rooms %}
+                <li>
+                    <span
+                        >{{ room.name }} - Máximo de pessoas: {{ room.numberOfPeople }} - Valor: R$
+                        {{ room.price }}</span
+                    >
+                    <div>
+                        <a href="{% url 'room-update' room.pk %}" class="edit-btn">Editar</a>
+                        <a href="{% url 'room-delete' room.pk %}" class="delete-btn">Excluir</a>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="empty-message">Nenhum quarto cadastrado para este imóvel.</li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'my-properties' %}">Voltar para meus imóveis</a>
+        </div>
+        {% endblock %}
+    </body>
+</html>

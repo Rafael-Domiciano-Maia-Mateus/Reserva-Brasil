@@ -60,7 +60,66 @@ class PropertyDeleteView(LoginRequiredMixin, DeleteView):
         if obj.owner != self.request.user:
             raise Http404("Você não tem permissão para excluir este imóvel.")
         return obj
-    
+
+
+class RoomListView(LoginRequiredMixin, ListView):
+    model = Room
+    template_name = "room_list.html"
+    context_object_name = "rooms"
+
+    def get_queryset(self):
+        property_id = self.kwargs['property_id']
+        property_obj = get_object_or_404(Property, id_property=property_id, owner=self.request.user)
+        return property_obj.rooms.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['property'] = get_object_or_404(Property, id_property=self.kwargs['property_id'])
+        return context
+
+
+class RoomCreateView(LoginRequiredMixin, CreateView):
+    model = Room
+    fields = ['name', 'price', 'numberOfPeople', 'beds', 'description']
+    template_name = "room_form.html"
+
+    def form_valid(self, form):
+        property_obj = get_object_or_404(Property, id_property=self.kwargs['property_id'], owner=self.request.user)
+        form.instance.property = property_obj
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('room-list', kwargs={'property_id': self.kwargs['property_id']})
+
+
+class RoomUpdateView(LoginRequiredMixin, UpdateView):
+    model = Room
+    fields = ['name', 'price', 'numberOfPeople', 'beds', 'description']
+    template_name = "room_form.html"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.property.owner != self.request.user:
+            raise Http404("Você não tem permissão para editar este quarto.")
+        return obj
+
+    def get_success_url(self):
+        return reverse_lazy('room-list', kwargs={'property_id': self.object.property.id_property})
+
+
+class RoomDeleteView(LoginRequiredMixin, DeleteView):
+    model = Room
+    template_name = "room_confirm_delete.html"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.property.owner != self.request.user:
+            raise Http404("Você não tem permissão para excluir este quarto.")
+        return obj
+
+    def get_success_url(self):
+        return reverse_lazy('room-list', kwargs={'property_id': self.object.property.id_property})
+
 
 def login_view(request):
     if request.method == 'POST':

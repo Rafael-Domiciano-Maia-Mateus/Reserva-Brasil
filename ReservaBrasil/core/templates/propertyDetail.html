@@ -21,6 +21,22 @@
                     <p><strong>Categoria:</strong> {{ property.category.name }}</p>
                     {% endif %} {% if property.typeProperty %}
                     <p><strong>Tipo:</strong> {{ property.typeProperty.name }}</p>
+                    {% endif %} {% if property.rooms.all %}
+                    <div class="property-rooms-inline">
+                        <h2>Quartos</h2>
+                        <ul class="room-list-inline">
+                            {% for room in property.rooms.all %}
+                            <li class="room-item-inline">
+                                <p><strong>Nome:</strong> {{ room.name }}</p>
+                                <p><strong>Valor:</strong> {{ room.price }}</p>
+                                <p>
+                                    <strong>Capacidade Máxima:</strong> {{ room.numberOfPeople }}
+                                    pessoa(s)
+                                </p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                     {% endif %}
                 </div>
 
@@ -41,7 +57,7 @@
             </div>
             {% endif %}
 
-            <a href="{% url 'homeReservation' %}">Faça sua reserva</a>
+            <a href="{% url 'homeReservation' %}" class="reservation-link"> Faça sua reserva </a>
         </div>
     </body>
 </html>

@@ -5,18 +5,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="{% static 'css/property_confirm_delete.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/room_confirm_delete.css' %}" />
     </head>
     <body>
         {% include "base.html" %} {% block content %}
-        <div class="confirm-delete-container">
-            <h1>Excluir Imóvel</h1>
-            <p>Tem certeza que deseja excluir "{{ object.name }}"?</p>
+        <div class="property-container">
+            <h1>Excluir Quarto</h1>
+            <p>Tem certeza que deseja excluir o quarto "{{ object.name }}"?</p>
             <form method="post">
                 {% csrf_token %}
                 <button type="submit">Confirmar exclusão</button>
+                <a href="{% url 'room-list' object.property.id_property %}">Cancelar</a>
             </form>
-            <a href="{% url 'my-properties' %}">Cancelar</a>
         </div>
         {% endblock %}
     </body>

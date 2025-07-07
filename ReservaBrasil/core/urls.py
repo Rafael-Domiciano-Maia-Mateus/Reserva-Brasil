@@ -19,5 +19,9 @@ urlpatterns = [
     path('meus-imoveis/criar/', PropertyCreateView.as_view(), name='property-create'),
     path('meus-imoveis/<int:pk>/editar/', PropertyUpdateView.as_view(), name='property-update'),
     path('meus-imoveis/<int:pk>/excluir/', PropertyDeleteView.as_view(), name='property-delete'),
+    path('meus-imoveis/<int:property_id>/quartos/', RoomListView.as_view(), name='room-list'),
+    path('meus-imoveis/<int:property_id>/quartos/criar/', RoomCreateView.as_view(), name='room-create'),
+    path('quartos/<int:pk>/editar/', RoomUpdateView.as_view(), name='room-update'),
+    path('quartos/<int:pk>/excluir/', RoomDeleteView.as_view(), name='room-delete'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
