@@ -14,6 +14,10 @@ urlpatterns = [
     path('Invoice/', Invoice, name='Invoice'),
     path('Businesses/', Businesses, name='Businesses'),
     path('addImage/', addImage, name='addImage'),
-     path('property/<int:property_id>/', propertyDetail, name='propertyDetail'),  
+    path('property/<int:property_id>/', propertyDetail, name='propertyDetail'),  
+    path('meus-imoveis/', MyPropertyListView.as_view(), name='my-properties'),
+    path('meus-imoveis/criar/', PropertyCreateView.as_view(), name='property-create'),
+    path('meus-imoveis/<int:pk>/editar/', PropertyUpdateView.as_view(), name='property-update'),
+    path('meus-imoveis/<int:pk>/excluir/', PropertyDeleteView.as_view(), name='property-delete'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

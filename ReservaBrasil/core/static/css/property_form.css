@@ -1,0 +1,79 @@
+/* property_form.css */
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container h1 {
+    color: #154c79;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-container form p {
+    margin: 0;
+}
+
+.form-container label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-container input[type='text'],
+.form-container input[type='number'],
+.form-container input[type='file'],
+.form-container select,
+.form-container textarea,
+.form-container input[type='date'] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.8px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-container input[type='text']:focus,
+.form-container input[type='number']:focus,
+.form-container input[type='file']:focus,
+.form-container select:focus,
+.form-container textarea:focus,
+.form-container input[type='date']:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-container button[type='submit'] {
+    padding: 12px 25px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.form-container button[type='submit']:hover {
+    background-color: #0056b3;
+}

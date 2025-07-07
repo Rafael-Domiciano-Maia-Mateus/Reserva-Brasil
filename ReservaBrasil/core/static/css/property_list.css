@@ -1,0 +1,89 @@
+/* property_list.css */
+
+.property-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.property-container h1 {
+    color: #154c79;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.property-container a.create-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.property-container a.create-button:hover {
+    background-color: #0056b3;
+}
+
+.property-list {
+    list-style: none;
+    padding: 0;
+}
+
+.property-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-list li span {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.property-list li a {
+    margin-left: 10px;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #fff;
+}
+
+.property-list li a.edit-btn {
+    background-color: #28a745;
+}
+
+.property-list li a.edit-btn:hover {
+    background-color: #1e7e34;
+}
+
+.property-list li a.delete-btn {
+    background-color: #dc3545;
+}
+
+.property-list li a.delete-btn:hover {
+    background-color: #b21f2d;
+}
+
+.property-list li.empty-message {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    text-align: center;
+    padding: 15px;
+}

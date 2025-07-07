@@ -6,6 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.http import Http404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from unidecode import unidecode
 from .models import *
 import random
@@ -13,6 +17,51 @@ import os
 
 
 # Create your views here.
+class MyPropertyListView(LoginRequiredMixin, ListView):
+    model = Property
+    template_name = "property_list.html"
+    context_object_name = "properties"
+
+    def get_queryset(self):
+        return Property.objects.filter(owner=self.request.user)
+
+
+class PropertyCreateView(LoginRequiredMixin, CreateView):
+    model = Property
+    fields = ['image', 'name', 'price', 'rate', 'active', 'category', 'typeProperty', 'description']
+    template_name = "property_form.html"
+    success_url = reverse_lazy("my-properties")
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+
+class PropertyUpdateView(LoginRequiredMixin, UpdateView):
+    model = Property
+    fields = ['image', 'name', 'price', 'rate', 'active', 'category', 'typeProperty', 'description']
+    template_name = "property_form.html"
+    success_url = reverse_lazy("my-properties")
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.owner != self.request.user:
+            raise Http404("Você não tem permissão para editar este imóvel.")
+        return obj
+
+
+class PropertyDeleteView(LoginRequiredMixin, DeleteView):
+    model = Property
+    template_name = "property_confirm_delete.html"
+    success_url = reverse_lazy("my-properties")
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.owner != self.request.user:
+            raise Http404("Você não tem permissão para excluir este imóvel.")
+        return obj
+    
+
 def login_view(request):
     if request.method == 'POST':
         action = request.POST.get('action')
@@ -86,6 +135,7 @@ def homepage(request):
     random.shuffle(properties)  
     propertyResults = properties[:9]  
     return render(request, 'homepage.html', {'propertyResults': propertyResults})
+
 
 
 def normalizeText(text):

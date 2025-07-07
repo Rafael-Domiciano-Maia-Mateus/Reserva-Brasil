@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>property-create</title>
+        <link rel="stylesheet" href="{% static 'css/property_list.css' %}" />
+    </head>
+    <body>
+        {% include 'base.html' %}
+        <div class="property-container">
+            <h1>Meus Imóveis</h1>
+            <a href="{% url 'property-create' %}" class="create-button">Cadastrar novo imóvel</a>
+
+            <ul class="property-list">
+                {% for imovel in properties %}
+                <li>
+                    <span>{{ imovel.name }} - R$ {{ imovel.price }}</span>
+                    <div>
+                        <a href="{% url 'property-update' imovel.pk %}" class="edit-btn">Editar</a>
+                        <a href="{% url 'property-delete' imovel.pk %}" class="delete-btn"
+                            >Excluir</a
+                        >
+                    </div>
+                </li>
+                {% empty %}
+                <li class="empty-message">Você ainda não cadastrou nenhum imóvel.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

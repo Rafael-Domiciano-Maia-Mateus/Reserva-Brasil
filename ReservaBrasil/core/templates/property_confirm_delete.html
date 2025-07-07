@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+<h1>Excluir Imóvel</h1>
+<p>Tem certeza que deseja excluir "{{ object.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar exclusão</button>
+</form>
+<a href="{% url 'my-properties' %}">Cancelar</a>
+{% endblock %}
