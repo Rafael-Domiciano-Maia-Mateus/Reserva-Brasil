@@ -245,8 +245,3 @@ def Invoice(request):
 
 def Businesses(request):
     return render(request, 'Businesses.html')
-
-
-@login_required(login_url='login_view')
-def addImage(request):
-    return render(request, 'addImage.html')

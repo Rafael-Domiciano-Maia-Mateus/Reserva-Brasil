@@ -13,7 +13,6 @@ urlpatterns = [
     path('users/', users, name='users'),
     path('Invoice/', Invoice, name='Invoice'),
     path('Businesses/', Businesses, name='Businesses'),
-    path('addImage/', addImage, name='addImage'),
     path('property/<int:property_id>/', propertyDetail, name='propertyDetail'),  
     path('meus-imoveis/', MyPropertyListView.as_view(), name='my-properties'),
     path('meus-imoveis/criar/', PropertyCreateView.as_view(), name='property-create'),
