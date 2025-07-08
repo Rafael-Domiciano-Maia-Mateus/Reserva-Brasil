@@ -15,7 +15,6 @@ from .models import *
 import random
 import os
 
-
 # Create your views here.
 class MyPropertyListView(LoginRequiredMixin, ListView):
     model = Property
