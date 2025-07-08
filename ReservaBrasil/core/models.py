@@ -1,11 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-
 class UserApp(models.Model):
-    """
-    Extends the default Django User model with additional fields.
-    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNumber = models.CharField(max_length=20)
     id_user = models.AutoField(primary_key=True)
