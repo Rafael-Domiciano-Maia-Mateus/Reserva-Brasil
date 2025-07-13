@@ -47,7 +47,7 @@
 
             <div class="container" id="container">
                 <div class="form-container sign-up">
-                    <form method="post" action="">
+                    <form method="post" action="" autocomplete="off">
                         {% csrf_token %}
                         <h1>Criar Conta</h1>
                         <div class="social-icons">
@@ -55,15 +55,40 @@
                             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                         </div>
                         <span>ou use seu e-mail para se registrar</span>
-                        <input type="text" name="username" placeholder="Nome" required />
-                        <input type="email" name="email" placeholder="E-mail" required />
-                        <input type="text" name="telefone" placeholder="Telefone" required />
-                        <input type="password" name="password" placeholder="Senha" required />
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Nome"
+                            required
+                            autocomplete="off"
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="E-mail"
+                            required
+                            autocomplete="off"
+                        />
+                        <input
+                            type="text"
+                            name="telefone"
+                            placeholder="Telefone"
+                            required
+                            autocomplete="off"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Senha"
+                            required
+                            autocomplete="off"
+                        />
                         <input
                             type="password"
                             name="confirm_password"
                             placeholder="Confirme a senha"
                             required
+                            autocomplete="off"
                         />
                         <input type="hidden" name="action" value="register" />
                         <button type="submit">Registrar</button>
@@ -71,7 +96,7 @@
                 </div>
 
                 <div class="form-container sign-in">
-                    <form method="post" action="">
+                    <form method="post" action="" autocomplete="off">
                         {% csrf_token %}
                         <h1>Entrar</h1>
                         <div class="social-icons">
@@ -79,8 +104,20 @@
                             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                         </div>
                         <span>ou use seu nome de usuário e senha</span>
-                        <input type="text" name="username" placeholder="Nome de usuário" required />
-                        <input type="password" name="password" placeholder="Senha" required />
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Nome de usuário"
+                            required
+                            autocomplete="off"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Senha"
+                            required
+                            autocomplete="off"
+                        />
                         <input type="hidden" name="action" value="login" />
                         <a href="{% url 'recoverPassword' %}">Esqueceu sua senha?</a>
                         <button type="submit">Entrar</button>

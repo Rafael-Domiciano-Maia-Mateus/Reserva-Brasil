@@ -40,7 +40,6 @@
                                 <ul id="custom-menu" class="dropdown-menu">
                                     <li><a href="{% url 'users' %}">Usuário</a></li>
                                     <li><a href="{% url 'homeReservation' %}">Reservas</a></li>
-                                    <li><a href="{% url 'Invoice' %}">Fatura</a></li>
                                     <li><a href="{% url 'my-properties' %}">Seu Imóvel</a></li>
                                     <li><a href="{% url 'Businesses' %}">Para Empresas</a></li>
                                 </ul>
@@ -52,7 +51,9 @@
                             ><img src="{% static 'img/icons/Logout.svg' %}" alt="Logout"
                         /></a>
                         {% else %}
-                        <a href="{% url 'login_view' %}">Login</a>
+                        <a href="{% url 'login_view' %}"
+                            ><img src="{% static 'img/icons/noAccounts.svg' %}" alt="Fazer Login"
+                        /></a>
                         {% endif %}
                     </div>
                 </div>

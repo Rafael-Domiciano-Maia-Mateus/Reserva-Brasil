@@ -18,6 +18,7 @@
                 <li>
                     <span>{{ imovel.name }}</span>
                     <div>
+                        <a href="{% url 'Invoice' %}" class="edit-btn">Fatura</a>
                         <a href="{% url 'property-update' imovel.pk %}" class="edit-btn">Editar</a>
                         {% for imovel in properties %} {% if imovel.rooms.all|length > 0 %}
                         <a href="{% url 'room-list' imovel.id_property %}" class="edit-btn"
