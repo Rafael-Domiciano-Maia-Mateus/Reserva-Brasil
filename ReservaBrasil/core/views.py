@@ -195,7 +195,6 @@ def homepage(request):
     return render(request, 'homepage.html', {'propertyResults': propertyResults})
 
 
-
 def normalizeText(text):
     return unidecode(text.lower())
 
