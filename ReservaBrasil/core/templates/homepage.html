@@ -25,8 +25,9 @@
                     <a href="{% url 'propertyDetail' property.id_property %}"
                         >{{ property.name }}</a
                     >
+                    {% if property.category %}
                     <p>Categoria: {{ property.category.name }}</p>
-                    {% if property.typeProperty %}
+                    {% endif %} {% if property.typeProperty %}
                     <p>Tipo: {{ property.typeProperty.name }}</p>
                     {% endif %} {% if property.price %}
                     <p>Preço: R$ {{ property.price }}</p>

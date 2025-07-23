@@ -191,7 +191,7 @@ def recoverPassword(request):
 def homepage(request):
     properties = list(Property.objects.filter(active=True))  
     random.shuffle(properties)  
-    propertyResults = properties[:9]  
+    propertyResults = properties[::]  
     return render(request, 'homepage.html', {'propertyResults': propertyResults})
 
 
